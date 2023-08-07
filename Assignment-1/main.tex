@@ -1,6 +1,6 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,15pt]{IEEEtran}
+\documentclass[journal,11pt]{IEEEtran}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
@@ -29,7 +29,6 @@
 \bigbreak
 \textbf{Problem Statement}
 
-\vspace{5pt}
 Given triangle with vertices
 \begin{align}
     \label{eq:tri-pts}
@@ -45,11 +44,9 @@ The direction vector of $AB$ is defined as
 \end{align}
 
 Find the direction vectors of $AB, BC$ and $CA$.
-
-\vspace{15pt}
+\bigbreak
 \textbf{Solution}
 
-\vspace{5pt}
 Given
 \begin{align}
     \vec{A} = \myvec{1  \\ -1},\,
@@ -57,22 +54,25 @@ Given
     \vec{C} = \myvec{-3 \\ -5}
 \end{align}
 
+The direction vector of $AB$
 \begin{align}
-    \text{The direction vector of $AB$}\ & = \ \vec{B} - \vec{A} \\
-                                        & = \ \myvec{-4 \\ 6} \ -\ \myvec{1 \\ -1} \\
-                                       \ &= \ \myvec{-5 \\ 7}
+     & = \ \vec{B} - \vec{A} \\
+     & = \ \myvec{-4 \\ 6} \ -\ \myvec{1 \\ -1} \\
+     & = \ \myvec{-5 \\ 7}
 \end{align}
 
+The direction vector of $BC$
 \begin{align}
-    \text{The direction vector of $BC$}\ & = \ \vec{C} - \vec{B} \\
-                                        & = \ \myvec{-3 \\ 5} \ -\ \myvec{-4 \\ 6} \\
-                                       \ &= \ \myvec{1 \\ -11}
+     & = \ \vec{C} - \vec{B} \\
+     & = \ \myvec{-3 \\ 5} \ -\ \myvec{-4 \\ 6} \\
+     & = \ \myvec{1  \\ -11}
 \end{align}
 
+The direction vector of $CA$
 \begin{align}
-    \text{The direction vector of $CA$}\ & = \ \vec{A} - \vec{C} \\
-                                        & = \ \myvec{1 \\ -1} \ -\ \myvec{-3 \\ -5} \\
-                                       \ &= \ \myvec{\ 4 \ \\ \ 4 \ }
+     & = \ \vec{A} - \vec{C} \\
+     & = \ \myvec{1   \\ -1} \ -\ \myvec{-3 \\ -5} \\
+     & = \ \myvec{\ 4 \ \\ \ 4 \ }
 \end{align}
 
 \end{document}
