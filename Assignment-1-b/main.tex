@@ -1,0 +1,92 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,11pt]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+\usepackage{listings}
+\usepackage{gvv}
+
+\begin{document}
+
+\vspace{3cm}
+\author{Ajay Krishnan K\\EE22BTECH11003}
+
+\title{Assignment 1-b}
+\maketitle
+
+\textbf{Solution for Problem 1.1.6}
+\bigbreak
+\textbf{Problem Statement}
+
+The area of $\triangle ABC$ is defined as
+
+\begin{align}
+    \frac{1}{2}\norm{{\brak{\vec{A}-\vec{B}}\times {\vec{A}-\vec{C}}}}
+\end{align}
+
+where
+
+\begin{align}
+    \vec{A}\times\vec{B} \triangleq \mydet{1 & -4 \\-1 & 6}
+\end{align}
+
+Find the area of $\triangle ABC$.
+
+\textbf{Solution}
+
+Given triangle with vertices
+\begin{align}
+    \label{eq:tri-pts}
+    \vec{A} = \myvec{ 1 \\ -1 },\,
+    \vec{B} = \myvec{-4 \\ 6},\,
+    \vec{C} = \myvec{-3 \\ -5}
+\end{align}
+
+Now,
+\begin{align}
+    \vec{A} - \vec{B} & = \myvec{ 1 \\ -1 } - \myvec{-4 \\ 6}\\
+                      & = \myvec{5  \\ -7}\\
+    \vec{A} - \vec{C} & = \myvec{ 1 \\ -1 } - \myvec{-3 \\ -5}\\
+                      & = \myvec{4  \\ 4}
+\end{align}
+Since
+\begin{align}
+    \vec{A}\times\vec{B} \triangleq \mydet{1 & -4 \\-1 & 6}
+\end{align}
+We get,
+\begin{align}
+    (\vec{A} - \vec{B})\times(\vec{A} - \vec{C}) & = \myvec{5     \\ -7} \times \myvec{4  \\ 4}\\
+                                                 & = \mydet{5 & 4 \\-7 & 4}\\
+                                                 & = ( 48 )
+\end{align}
+
+Since
+\begin{align}
+    \norm{\vec{B}-\vec{A}} \triangleq \sqrt{\brak{\vec{B}-\vec{A}}^{\top}{\vec{B}-\vec{A}}}
+\end{align}
+
+We get,
+\begin{align}
+    \norm{(\vec{A} - \vec{B})\times(\vec{A} - \vec{C})} & = \sqrt{\brak{48}^{\top}\brak{48}} \\
+                                                        & = \sqrt{\brak{48}^{2}}             \\
+                                                        & = 48
+\end{align}
+
+Therefore, the area of $\triangle ABC$
+\begin{align}
+     & = \frac{1}{2}\norm{{\brak{\vec{A}-\vec{B}}\times {\vec{A}-\vec{C}}}} \\
+     & = \frac{1}{2}\times{48}                                              \\
+     & = 24\ \text{sq.units}
+\end{align}
+\end{document}
