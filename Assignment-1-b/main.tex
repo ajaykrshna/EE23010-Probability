@@ -55,38 +55,29 @@ Given triangle with vertices
 
 Now,
 \begin{align}
-    \vec{A} - \vec{B} & = \myvec{ 1 \\ -1 } - \myvec{-4 \\ 6}\\
-                      & = \myvec{5  \\ -7}\\
-    \vec{A} - \vec{C} & = \myvec{ 1 \\ -1 } - \myvec{-3 \\ -5}\\
-                      & = \myvec{4  \\ 4}
+    \vec{A} - \vec{B} &= \myvec{ 1 \\ -1 } - \myvec{-4 \\ 6}\\
+                      &= \myvec{5  \\ -7}\\
+    \vec{A} - \vec{C} &= \myvec{ 1 \\ -1 } - \myvec{-3 \\ -5}\\
+                      &= \myvec{4  \\ 4}
 \end{align}
+
 Since
 \begin{align}
     \vec{A}\times\vec{B} \triangleq \mydet{1 & -4 \\-1 & 6}
 \end{align}
-We get,
-\begin{align}
-    (\vec{A} - \vec{B})\times(\vec{A} - \vec{C}) & = \myvec{5     \\ -7} \times \myvec{4  \\ 4}\\
-                                                 & = \mydet{5 & 4 \\-7 & 4}\\
-                                                 & = ( 48 )
-\end{align}
-
-Since
-\begin{align}
-    \norm{\vec{B}-\vec{A}} \triangleq \sqrt{\brak{\vec{B}-\vec{A}}^{\top}{\vec{B}-\vec{A}}}
-\end{align}
 
 We get,
 \begin{align}
-    \norm{(\vec{A} - \vec{B})\times(\vec{A} - \vec{C})} & = \sqrt{\brak{48}^{\top}\brak{48}} \\
-                                                        & = \sqrt{\brak{48}^{2}}             \\
-                                                        & = 48
+    (\vec{A} - \vec{B})\times(\vec{A} - \vec{C}) &= \myvec{5 \\ -7} \times \myvec{4 \\ 4}\\
+                                                 &= \mydet{5 & 4 \\-7 & 4}\\
+                                                 &=  48 
 \end{align}
 
 Therefore, the area of $\triangle ABC$
 \begin{align}
      & = \frac{1}{2}\norm{{\brak{\vec{A}-\vec{B}}\times {\vec{A}-\vec{C}}}} \\
-     & = \frac{1}{2}\times{48}                                              \\
+     & = \frac{1}{2}\times\norm{{48}}\\
+     & = \frac{1}{2}\times{48}\\
      & = 24\ \text{sq.units}
 \end{align}
 \end{document}
