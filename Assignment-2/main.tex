@@ -1,4 +1,19 @@
 \documentclass[journal,11pt]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+\usepackage{listings}
+\usepackage{gvv}
 
 \begin{document}
 
@@ -8,11 +23,61 @@
 \title{Assignment 2}
 \maketitle
 
-\textbf{Question 12.13.6.16} %added just for question
+\textbf{Question 12.13.6.16}
 \begin{enumerate}
     \item Bag I contains 3 red and 4 black balls and Bag II contains 4 red and 5 black balls.
     One ball is transferred from Bag I to Bag II and then a ball is drawn from Bag II.
     The ball so drawn is found to be red in colour. Find the probability that the
     transferred ball is black.
 \end{enumerate}
+
+\solution
+
+Initially,
+For Bag I,
+\begin{align}
+    \text{Number of red balls} &=3 \\
+    \text{Number of black balls} &= 4
+\end{align}
+
+For Bag II,
+\begin{align}
+    \text{Number of red balls} &= 4 \\
+    \text{Number of black balls} &= 5 
+\end{align}
+
+Let $E_1$ be the event that a red ball is transferred from bag I to bag II
+and let $E_2$ be the event that a black ball is transferred from bag I to bag II.
+
+Thus,
+\begin{align}
+    P(E_1) &= \frac{3}{7} \\
+    P(E_2) &= \frac{4}{7}
+\end{align}
+
+Now, let X be the event that the drawn ball is red
+
+Probability that the drawn ball is red,
+
+When the ball being transferred is red,
+\begin{align}
+    P\brak{\cond{X}{E_1}} &= \frac{5}{10}\\
+    &=\frac{1}{2}
+\end{align}
+
+When the ball being transferred is black,
+\begin{align}
+    P\brak{\cond{X}{E_2}} &= \frac{4}{10}\\
+    &=\frac{2}{5}
+\end{align}
+
+Now the probability of drawn ball being red given the transferred ball 
+is black is
+
+(According to Bayes' theorem)
+\begin{align}
+    P\brak{\cond{E_2}{X}} &= \frac{P\brak{E_2}P\brak{\cond{X}{E_2}}}{P\brak{E_1}P\brak{\cond{X}{E_1}} + P\brak{E_2}P\brak{\cond{X}{E_2}}}\\
+    &= \frac{\frac{4}{7} \times \frac{2}{5}}{\frac{3}{7}\times\frac{1}{2}+\frac{4}{7}\times\frac{2}{5}}\\
+    &= \frac{16}{31}
+\end{align}
 \end{document}
