@@ -1,22 +1,23 @@
-# Code by Ajay K
-
 import numpy as np
 from scipy.stats import bernoulli
 
-# Number of samples is 1000, 1 denotes success and 0 denotes failure
-sim_len = int(1000)
+p_black_transferred = 4/7
+p_red_transferred = 3/7
+p_red_given_black = 4/9
+p_black_given_black = 5/9
+p_red_given_red = 5/9
+p_black_given_red = 4/9
 
-# Probability of the event ball is red,given transferred is black,
-# i.e., X=1 is 16/31
-prob = 16/31
+num_simulations = 1000
 
-bern_dist = bernoulli.rvs(size=sim_len, p=prob)
-count_success = np.nonzero(bern_dist == 1)
-prob_success = np.size(count_success)/sim_len
+black_transferred = bernoulli.rvs(p_black_transferred, size=num_simulations)
 
-success_sim = sim_len*(1-prob_success)
-success_act = sim_len*(1-prob)
+red_drawn_given_black = np.where(black_transferred == 1, bernoulli.rvs(p_red_given_black, size=num_simulations), 0)
+red_drawn_given_red = np.where(black_transferred == 0, bernoulli.rvs(p_red_given_red, size=num_simulations), 0)
 
-print("Probability-simulation : ", prob_success,",actual:" ,prob)
-print("No. of success: ", success_sim,",actual:", success_act)
-print("Sample generated:", bern_dist)
+black_transferred_and_red_drawn = np.sum(red_drawn_given_black)
+red_transferred_and_red_drawn = np.sum(red_drawn_given_red)
+
+p_black_transferred_given_red_drawn = black_transferred_and_red_drawn / (black_transferred_and_red_drawn + red_transferred_and_red_drawn)
+
+print("Simulated probability:", p_black_transferred_given_red_drawn)
