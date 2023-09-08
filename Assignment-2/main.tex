@@ -52,33 +52,30 @@
 \solution
 
 \input{tables/main.tex}
-Thus,
+Assuming ball is not transferred,
 \begin{align}
-    P(E=0) & = \frac{3}{7} \\
-    P(E=1) & = \frac{4}{7}
+    P(X=0, Y=0) & = \frac{3}{7} \\
+    P(X=1, Y=0) & = \frac{4}{7}
 \end{align}
-
-Probability that the drawn ball is red,
 
 When the ball being transferred is red,
 \begin{align}
-    P\brak{\cond{X=0}{E=0}} & = \frac{5}{10} \\
-                            & =\frac{1}{2}
+    P\brak{\cond{X=0,Y=1}{X=0}} & = \frac{5}{10} \\
+                                & =\frac{1}{2}
 \end{align}
 
 When the ball being transferred is black,
 \begin{align}
-    P\brak{\cond{X=0}{E=1}} & = \frac{4}{10} \\
-                            & =\frac{2}{5}
+    P\brak{\cond{X=0,Y=1}{X=1}} & = \frac{4}{10} \\
+                                & =\frac{2}{5}
 \end{align}
 
-Now the probability of drawn ball being red given the transferred ball
-is black is
+Now the probability of the transferred ball is black given drawn ball being red is
 
 (According to Bayes' theorem)
 \begin{align}
-    P\brak{\cond{E=0}{X=1}}
-     & = \frac{P\brak{E=0}P\brak{\cond{X=1}{E=0}}}{P\brak{E=1}P\brak{\cond{X=1}{E=1}} + P\brak{E=0}P\brak{\cond{X=1}{E=0}}} \\
+    P\brak{\cond{X=1}{X=0,Y=1}}
+     & = \frac{P\brak{X=0}P\brak{\cond{X=0,Y=1}{X=0}}}{P\brak{X=0}P\brak{\cond{X=0,Y=1}{X=0}} + P\brak{X=1}P\brak{\cond{X=0,Y=1}{X=1}}} \\
      & = \frac{\frac{4}{7} \times \frac{2}{5}}{\frac{3}{7}\times\frac{1}{2}+\frac{4}{7}\times\frac{2}{5}}                   \\
      & = \frac{16}{31}
 \end{align}
