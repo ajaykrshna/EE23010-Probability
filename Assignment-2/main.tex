@@ -52,31 +52,36 @@
 \solution
 
 \input{tables/main.tex}
-Assuming ball is not transferred,
+Let $X_1$ be the state before ball is transferred and 
+
+$X_2$ be the state after ball is transferred.
+
+When ball is not transferred,
 \begin{align}
-    P(X=0, Y=0) & = \frac{3}{7} \\
-    P(X=1, Y=0) & = \frac{4}{7}
+    \pr{X_1=0, Y=0} & = \frac{3}{7} \\
+    \pr{X_1=1, Y=0} & = \frac{4}{7}
 \end{align}
 
 When the ball being transferred is red,
 \begin{align}
-    P\brak{\cond{X=0,Y=1}{X=0}} & = \frac{5}{10} \\
+    \pr{\cond{X_2=0,Y=1}{X_1=0}} & = \frac{5}{10} \\
                                 & =\frac{1}{2}
 \end{align}
 
-When the ball being transferred is black,
+When the ball being transrferred is black,
 \begin{align}
-    P\brak{\cond{X=0,Y=1}{X=1}} & = \frac{4}{10} \\
+    \pr{\cond{X_2=0,Y=1}{X_1=1}} & = \frac{4}{10} \\
                                 & =\frac{2}{5}
 \end{align}
 
 Now the probability of the transferred ball is black given drawn ball being red is
 
+
 (According to Bayes' theorem)
 \begin{align}
-    P\brak{\cond{X=1}{X=0,Y=1}}
-     & = \frac{P\brak{X=0}P\brak{\cond{X=0,Y=1}{X=0}}}{P\brak{X=0}P\brak{\cond{X=0,Y=1}{X=0}} + P\brak{X=1}P\brak{\cond{X=0,Y=1}{X=1}}} \\
+    \pr{\cond{X_1=1}{X_2=0,Y=1}}
+     & = \frac{\pr{X_1=1}\pr{\cond{X_2=0,Y=1}{X_1=1}}}{\pr{X_1=0}\pr{\cond{X_2=0,Y=1}{X_1=0}} + \pr{X_1=1}\pr{\cond{X_2=0,Y=1}{X_1=1}}} \\
      & = \frac{\frac{4}{7} \times \frac{2}{5}}{\frac{3}{7}\times\frac{1}{2}+\frac{4}{7}\times\frac{2}{5}}                   \\
      & = \frac{16}{31}
 \end{align}
-\end{document}
+\end{document}write the bayes theorem here
