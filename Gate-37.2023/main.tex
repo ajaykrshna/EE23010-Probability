@@ -1,0 +1,99 @@
+\documentclass[journal,11pt]{IEEEtran}
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+\usepackage{listings}
+\usepackage{color}    
+\usepackage{array}    
+\usepackage{longtable}
+\usepackage{calc}     
+\usepackage{multirow} 
+\usepackage{hhline}   
+\usepackage{ifthen}   
+\usepackage{lscape}     
+\usepackage{chngcntr}
+\usepackage{float}
+\usepackage{gvv}
+
+\begin{document}
+
+\vspace{3cm}
+\author{Ajay Krishnan K\\EE22BTECH11003}
+
+\title{Gate ST-37.2023}
+\maketitle
+
+\textbf{Question}
+Let $X$ be a random variable with probability density function
+\begin{align}\
+    % align the cases
+    f(x) = \begin{cases}
+        \frac{1}{x^2} & if x \geq 1\\
+        0  & otherwise.
+        \end{cases}
+\end{align}
+If $Y = \log_e X$, then $\pr{Y<1 | Y<2 }$ equals
+
+\solution
+
+Given, the probability density function of $X$ is
+\begin{align}
+    f(x) = \begin{cases}
+        \frac{1}{x^2} & if x \geq 1\\
+        0  & otherwise.
+        \end{cases}
+\end{align}
+
+Also, $Y = \log_e X$.
+
+Consider the cumulative distribution function(CDF) of $Y$,
+\begin{align}
+    F_Y(y) &= \pr{Y \leq y}\\
+    &= \pr{\log_e X \leq y}\\
+    &= \pr{X \leq e^y}
+\end{align}
+Now, we need to find $\pr{Y<1 | Y<2 }$.
+For that, we need to find $F_Y(1)$ and $F_Y(2)$.\\
+Using the equation for CDF,
+\begin{align}
+    F_Y(1) &= \pr{X \leq e^1}\\
+    &= \pr{X \leq e}\\
+    &= \int_{1}^{e} \frac{1}{x^2} dx\\
+    &= 1 - \frac{1}{e}
+\end{align}
+and
+\begin{align}
+    F_Y(2) &= \pr{X \leq e^2}\\
+    &= \int_{1}^{e^2} \frac{1}{x^2} dx\\
+    &= 1 - \frac{1}{e^2}
+\end{align}
+
+Now, we can find $\pr{Y<1 | Y<2 }$ as follows,
+\begin{align}
+    \pr{Y<1 | Y<2 } &= \frac{\pr{Y<1 , Y<2}}{\pr{Y<2}}\\
+    &= \frac{\pr{Y<1}}{\pr{Y<2}}\\
+    &= \frac{F_Y(1)}{F_Y(2)}\\
+    &= \frac{1 - \frac{1}{e}}{1 - \frac{1}{e^2}}\\
+    &= \frac{e(e-1)}{e^2-1}\\
+    &= \frac{e}{e+1}
+\end{align}
+
+\end{document}
