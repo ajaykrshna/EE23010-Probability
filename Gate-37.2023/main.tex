@@ -53,7 +53,6 @@ Let $X$ be a random variable with probability density function
 If $Y = \log_e X$, then $\pr{Y<1 | Y<2 }$ equals
 
 \solution
-
 Given, the probability density function of $X$ is
 \begin{align}
     f(x) = \begin{cases}
@@ -61,29 +60,24 @@ Given, the probability density function of $X$ is
         0  & otherwise.
         \end{cases}
 \end{align}
-
-Also, $Y = \log_e X$.
-
+Also, $Y = \log_e X$.\\
 Consider the cumulative distribution function(CDF) of $Y$,
 \begin{align}
     F_Y(y) &= \pr{Y \leq y}\\
     &= \pr{\log_e X \leq y}\\
-    &= \pr{X \leq e^y}
+    &= \pr{X \leq e^y}\\
+    &= \int_{1}^{e^y} \frac{1}{x^2} dx\\
+    &= 1 - \frac{1}{e^y}
 \end{align}
 Now, we need to find $\pr{Y<1 | Y<2 }$.
 For that, we need to find $F_Y(1)$ and $F_Y(2)$.\\
 Using the equation for CDF,
 \begin{align}
-    F_Y(1) &= \pr{X \leq e^1}\\
-    &= \pr{X \leq e}\\
-    &= \int_{1}^{e} \frac{1}{x^2} dx\\
-    &= 1 - \frac{1}{e}
+    F_Y(1) &= 1 - \frac{1}{e}
 \end{align}
 and
 \begin{align}
-    F_Y(2) &= \pr{X \leq e^2}\\
-    &= \int_{1}^{e^2} \frac{1}{x^2} dx\\
-    &= 1 - \frac{1}{e^2}
+    F_Y(2) &= 1 - \frac{1}{e^2}
 \end{align}
 
 Now, we can find $\pr{Y<1 | Y<2 }$ as follows,
