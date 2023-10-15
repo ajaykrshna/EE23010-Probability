@@ -1,30 +1,19 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h> // for rand() and srand()
+#include <time.h>   // for seeding the random number generator
 
-// Define the PDF function
-double pdf(double x) {
-    if (x >= 1.0) {
-        return 1.0 / (x * x);
-    }
-    return 0.0;
-}
-
-// Calculate the CDF of Y
-double cdf_y(double y) {
-    double sum = 0.0;
-    double dx = 0.0001; // Small step size for numerical integration
-    double x;
-
-    for (x = 1.0; x <= exp(y); x += dx) {
-        sum += pdf(x) * dx;
-    }
-
-    return sum;
+// Define the CDF function for Y
+double cdf_Y(double y) {
+    return 1.0 - 1.0 / exp(y); // CDF of Y based on the given transformation
 }
 
 int main() {
+    // Seed the random number generator
+    srand(time(NULL));
+
     FILE *dataFile = fopen("cdf_data.txt", "w");
-    
+
     if (!dataFile) {
         printf("Error: Could not open data file for writing.\n");
         return 1;
@@ -32,10 +21,14 @@ int main() {
 
     double y, cdf;
 
-    // Calculate and write the CDF data
+    // Generate random values of X from a uniform distribution [1, 5]
+    // Then compute Y = log_e(X) and calculate the CDF of Y
     for (y = 0.0; y <= 5.0; y += 0.1) {
-        cdf = cdf_y(y);
-        fprintf(dataFile, "%.2f %.5f\n", y, cdf);
+        double x = 1.0 + (4.0 * rand() / (double)RAND_MAX); // Generate random X from a uniform distribution [1, 5]
+        double generated_Y = log(x); // Compute Y = log_e(X)
+        double cdf_X = 1.0 - 1.0 / x; // CDF of X
+        cdf = cdf_Y(generated_Y);
+        fprintf(dataFile, "%.5f %.5f %.5f %.5f\n", x, cdf_X, generated_Y, cdf);
     }
 
     fclose(dataFile);
