@@ -106,9 +106,9 @@ Now, we can find $\pr{Y<1 | Y<2 }$ as follows,
 
 \item Steps to plot the cdf of $Y$.
 \begin{enumerate}
-    \item Generate $X$ from uniform distribution.
+    \item Generate $X$ from uniform distribution between $1$ and $5$.
     \item Use $X$ to generate $Y = \log_e X$.
-    \item Calculate the CDF of $Y$.
+    \item Calculate the CDF of $Y$ using the equation $1-\frac{1}{e^y}$.
     \item Store the values of CDF in data file.
     \item Plot the CDF using GNUPlot.
 \end{enumerate}
