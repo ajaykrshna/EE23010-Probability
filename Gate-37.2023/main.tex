@@ -43,74 +43,74 @@
 
 \textbf{Question}
 \begin{enumerate}
-\item Let $X$ be a random variable with probability density function
-\begin{align}\
-    f(x) = \begin{cases}
-               \frac{1}{x^2} & if x \geq 1 \\
-               0             & otherwise.
-           \end{cases}
-\end{align}
-If $Y = \log_e X$, then $\pr{Y<1 | Y<2 }$ equals
+    \item Let $X$ be a random variable with probability density function
+          \begin{align}\
+              f(x) = \begin{cases}
+                         \frac{1}{x^2} & if x \geq 1 \\
+                         0             & otherwise.
+                     \end{cases}
+          \end{align}
+          If $Y = \log_e X$, then $\pr{Y<1 | Y<2 }$ equals
 
 
-\solution
-Given, the probability density function of $X$ is
-\begin{align}
-    f(x) = \begin{cases}
-               \frac{1}{x^2} & if x \geq 1 \\
-               0             & otherwise.
-           \end{cases}
-\end{align}
-Also, $Y = \log_e X$.\\
-Consider the cumulative distribution function(CDF) of $X$,
-\begin{align}
-    F_X(x) & = \pr{X \leq x}                   \\
-           & = \int_{1}^{x} \frac{1}{x^2} dx \\
-           & = 1 - \frac{1}{x} , x \geq 1
-\end{align}
-Now, we need to find the CDF of $Y$.
-\begin{align}
-    F_Y(y) & = \pr{Y \leq y} \\
-           & = \pr{\log_e X \leq y} \\
-           & = \pr{X \leq e^y} \\
-           & = F_X(e^y) \\
-           & = 1 - \frac{1}{e^y} , y \geq 0
-\end{align}
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\columnwidth]{./figs/cdf_plot.png}
-    \caption{CDF of $Y$}
-    \label{fig:cdf_plot}
-\end{figure}
+          \solution
+          Given, the probability density function of $X$ is
+          \begin{align}
+              f(x) = \begin{cases}
+                         \frac{1}{x^2} & if x \geq 1 \\
+                         0             & otherwise.
+                     \end{cases}
+          \end{align}
+          Also, $Y = \log_e X$.\\
+          Consider the cumulative distribution function(CDF) of $X$,
+          \begin{align}
+              F_X(x) & = \pr{X \leq x}                 \\
+                     & = \int_{1}^{x} \frac{1}{x^2} dx \\
+                     & = 1 - \frac{1}{x} , x \geq 1
+          \end{align}
+          Now, we need to find the CDF of $Y$.
+          \begin{align}
+              F_Y(y) & = \pr{Y \leq y}                \\
+                     & = \pr{\log_e X \leq y}         \\
+                     & = \pr{X \leq e^y}              \\
+                     & = F_X(e^y)                     \\
+                     & = 1 - \frac{1}{e^y} , y \geq 0
+          \end{align}
+          \begin{figure}[!ht]
+              \centering
+              \includegraphics[width=\columnwidth]{./figs/cdf_plot.png}
+              \caption{CDF of $Y$}
+              \label{fig:cdf_plot}
+          \end{figure}
 
 
-Now, we need to find $\pr{Y<1 | Y<2 }$.
-For that, we need to find $F_Y(1)$ and $F_Y(2)$.\\
-Using the equation for CDF,
-\begin{align}
-    F_Y(1) & = 1 - \frac{1}{e}
-\end{align}
-and
-\begin{align}
-    F_Y(2) & = 1 - \frac{1}{e^2}
-\end{align}
-Now, we can find $\pr{Y<1 | Y<2 }$ as follows,
-\begin{align}
-    \pr{Y<1 | Y<2 } & = \frac{\pr{Y<1 , Y<2}}{\pr{Y<2}}           \\
-                    & = \frac{\pr{Y<1}}{\pr{Y<2}}                 \\
-                    & = \frac{F_Y(1)}{F_Y(2)}                     \\
-                    & = \frac{1 - \frac{1}{e}}{1 - \frac{1}{e^2}} \\
-                    & = \frac{e(e-1)}{e^2-1}                      \\
-                    & = \frac{e}{e+1}
-\end{align}
+          Now, we need to find $\pr{Y<1 | Y<2 }$.
+          For that, we need to find $F_Y(1)$ and $F_Y(2)$.\\
+          Using the equation for CDF,
+          \begin{align}
+              F_Y(1) & = 1 - \frac{1}{e}
+          \end{align}
+          and
+          \begin{align}
+              F_Y(2) & = 1 - \frac{1}{e^2}
+          \end{align}
+          Now, we can find $\pr{Y<1 | Y<2 }$ as follows,
+          \begin{align}
+              \pr{Y<1 | Y<2 } & = \frac{\pr{Y<1 , Y<2}}{\pr{Y<2}}           \\
+                              & = \frac{\pr{Y<1}}{\pr{Y<2}}                 \\
+                              & = \frac{F_Y(1)}{F_Y(2)}                     \\
+                              & = \frac{1 - \frac{1}{e}}{1 - \frac{1}{e^2}} \\
+                              & = \frac{e(e-1)}{e^2-1}                      \\
+                              & = \frac{e}{e+1}
+          \end{align}
 
-\item Steps to plot the cdf of $Y$.
-\begin{enumerate}
-    \item Generate $X$ from uniform distribution between $1$ and $5$.
-    \item Use $X$ to generate $Y = \log_e X$.
-    \item Calculate the CDF of $Y$ using the equation $1-\frac{1}{e^y}$.
-    \item Store the values of CDF in data file.
-    \item Plot the CDF using GNUPlot.
+    \item Steps to plot the cdf of $Y$.
+          \begin{enumerate}
+              \item Generate $X$ using the given probability distribution. The inverse transform sampling method is used.
+              \item Use $X$ to generate $Y = \log_e X$.
+              \item Calculate the CDF of $Y$ using the equation $1-\frac{1}{e^y}$.
+              \item Store the values of CDF in data file.
+              \item Plot the CDF using GNUPlot.
+          \end{enumerate}
 \end{enumerate}
-\end{enumerate}                                 
 \end{document}
