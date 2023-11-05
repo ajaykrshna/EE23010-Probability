@@ -49,7 +49,7 @@ int main() {
     // Then compute Y = log_e(X) and calculate the CDF of Y
     for (int i = 0; i < 41; i++) {
         double u = (double)rand() / RAND_MAX; // Generate a random number from a uniform distribution [0, 1]
-        double generated_X = 1.0 / sqrt(u); // Generate a random variable from the given distribution
+        double generated_X = 1.0 / (1 - u); // Generate a random variable from the given distribution
         double generated_Y = log(generated_X); // Compute Y = log_e(X)
         pdf = pdf_X(generated_X); // PDF of X
         cdf = cdf_Y(generated_Y); // CDF of Y

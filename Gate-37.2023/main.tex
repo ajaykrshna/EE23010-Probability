@@ -106,7 +106,21 @@
 
     \item Steps to plot the cdf of $Y$.
           \begin{enumerate}
-              \item Generate $X$ using the given probability distribution. The inverse transform sampling method is used.
+              \item Generate a uniform random variable between 0 and 1.
+              \item Given the PDF of $X$ as $\frac{1}{x^2}$, use the inverse transform method to generate $X$.\\
+                    The inverse transform method is given by,
+                    \begin{align}
+                        X = F^{-1}(U)
+                    \end{align}
+                    where $U$ is a uniform random variable between 0 and 1 and $F^{-1}$ is the inverse of CDF of $X$.
+              \item The CDF of $X$ is given by,
+                    \begin{align}
+                        F(x) = \int_{1}^{x} \frac{1}{x^2} dx = 1 - \frac{1}{x}
+                    \end{align}
+              The inverse of CDF of $X$ is given by,
+                    \begin{align}
+                        F^{-1}(x) = \frac{1}{1-x}
+                    \end{align}
               \item Use $X$ to generate $Y = \log_e X$.
               \item Calculate the CDF of $Y$ using the equation $1-\frac{1}{e^y}$.
               \item Store the values of CDF in data file.
